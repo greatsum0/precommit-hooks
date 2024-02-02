@@ -1,0 +1,12 @@
+#!bin/bash
+export GIT_HOOK_TYPE="commit"
+
+. "$(dirname "$0")/functions.sh"
+
+exec 1>&2
+
+check_black_formatting
+check_pylint_rules
+prevent_default_branch
+
+exit 0
